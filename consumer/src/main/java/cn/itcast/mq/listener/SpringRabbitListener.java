@@ -69,4 +69,23 @@ public class SpringRabbitListener {
 
 
 
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(name = "topic.queue1"),
+            exchange = @Exchange(name ="itcast.topic",
+                    type = ExchangeTypes.TOPIC),
+            key = "china.#"
+    ))
+    public void listenTopicQueue1(String msg) throws InterruptedException {
+        System.out.println("spring消费1接收到Topic消息：【"+msg+"】");
+    }
+
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(name = "topic.queue2"),
+            exchange = @Exchange(name ="itcast.topic",
+                    type = ExchangeTypes.TOPIC),
+            key = "#.news"
+    ))
+    public void listenTopicQueue2(String msg) throws InterruptedException {
+        System.out.println("spring消费2接收到Topic消息：【"+msg+"】");
+    }
 }

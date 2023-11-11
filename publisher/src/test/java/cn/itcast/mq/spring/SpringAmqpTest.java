@@ -55,4 +55,11 @@ public class SpringAmqpTest {
         rabbitTemplate.convertAndSend(exchangeName,"yellow",message);
     }
 
+    @Test
+    public void testTopicExchange() throws InterruptedException {
+        String exchangeName="itcast.topic";
+        String message="喜报！孙悟空大战哥斯拉，胜！";
+        rabbitTemplate.convertAndSend(exchangeName,"news",message);
+    }
+
 }
