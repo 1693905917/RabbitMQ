@@ -48,4 +48,11 @@ public class SpringAmqpTest {
         rabbitTemplate.convertAndSend(exchangeName,"",message);
     }
 
+    @Test
+    public void testDirectExchange() throws InterruptedException {
+        String exchangeName="itcast.direct";
+        String message="红色警报！日本乱排核废水，导致海洋生物变异，惊现哥斯拉！";
+        rabbitTemplate.convertAndSend(exchangeName,"yellow",message);
+    }
+
 }
