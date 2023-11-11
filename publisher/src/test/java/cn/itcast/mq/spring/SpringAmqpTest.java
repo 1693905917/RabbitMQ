@@ -41,6 +41,11 @@ public class SpringAmqpTest {
 
     }
 
-
+    @Test
+    public void testFanoutExchange() throws InterruptedException {
+        String exchangeName="itcast.fanout";
+        String message="hello,everyone!";
+        rabbitTemplate.convertAndSend(exchangeName,"",message);
+    }
 
 }

@@ -33,5 +33,16 @@ public class SpringRabbitListener {
         Thread.sleep(200);
     }
 
+    @RabbitListener(queues = "fanout.queue1")
+    public void listenFanoutQueue1(String msg) throws InterruptedException {
+        System.out.println("spring消费1>>>>>>接收到Fanout消息：【"+msg+"】");
+    }
+
+    @RabbitListener(queues = "fanout.queue2")
+    public void listenFanoutQueue2(String msg) throws InterruptedException {
+        System.out.println("spring消费2>>>>>>接收到Fanout消息：【"+msg+"】");
+    }
+
+
 
 }
